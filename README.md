@@ -11,4 +11,4 @@ CREATE TABLE `users` (
   `BIRTH` date DEFAULT NULL,
   `CITY` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`EMAIL`)
-)
+);
