@@ -5,7 +5,7 @@
 <title>Inscription</title>
 </head>
 <body style="background-color: lightgrey;">
-<a href="/index.jsp">Accueil</a>
+<a href="index.jsp">Accueil</a>
 
 	<div style="margin-left: 25%; margin-top: 50px;">
 		<h1>Inscription</h1> <s:form
