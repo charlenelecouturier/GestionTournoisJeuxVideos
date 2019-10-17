@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import com.action.RegisterAction;
+import java.sql.CallableStatement;
+import java.sql.Types;
 
 public class User {
 	private String lastname, name, email, city, password, birthdate, phone, gender;
@@ -15,9 +17,10 @@ public class User {
 
 	public static int register(RegisterAction ra) throws Exception {
 		int flag = 0;
-		Connection con=conn();
 
 		try {
+			Connection con=conn();
+
 			PreparedStatement ps = con.prepareStatement("INSERT INTO USERS VALUES(?,?,?,?,?,?,?,?)");
 			ps.setString(1, ra.getUserBean().getName());
 			ps.setString(2, ra.getUserBean().getLastname());
@@ -32,14 +35,33 @@ public class User {
 			ps.setString(8, ra.getUserBean().getGender());
 
 			flag = ps.executeUpdate();
+			con.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		con.close();
 
 		return flag;
 
 	}
+
+	public String getUser(String user_email, String user_pass) {
+		try {
+			Connection con=conn();
+
+			CallableStatement cs =con.prepareCall("{call getUser(?,?,?)}");
+			cs.setString(1, user_email);
+			cs.setString(2, user_pass);
+			cs.registerOutParameter(3, Types.VARCHAR);
+			cs.executeQuery();
+			String str=cs.getString(3);
+			con.close();
+			return str;
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
+
 
 	public String getName() {
 		return name;

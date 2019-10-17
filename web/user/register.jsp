@@ -36,7 +36,7 @@
 
 			<s:textfield  label="Last Name" id="lastname" name="userBean.lastname" class="form-control formstruts" />
 
-			<s:radio   label="Gender" name="userBean.gender" list="{'M','F'}"  class="formstruts" cssClass="radioMargin" />
+			<s:radio   label="Gender" name="userBean.gender" list="{'M','F'}"   cssClass="radioMargin formstruts" />
 
 			<s:password  label="Password" name="userBean.password" class="form-control formstruts" />
 
