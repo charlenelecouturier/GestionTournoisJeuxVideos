@@ -1,6 +1,6 @@
 # GestionTournoisJeuxVideos
 
-script sql 
+script sql :
 
 CREATE DATABASE `DB`;
 CREATE TABLE `users` (
@@ -10,5 +10,7 @@ CREATE TABLE `users` (
   `PASSWORD` varchar(30) DEFAULT NULL,
   `BIRTH` date DEFAULT NULL,
   `CITY` varchar(30) DEFAULT NULL,
+  `PHONE` varchar(20) DEFAULT NULL,
+  `GENDER` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`EMAIL`)
 );

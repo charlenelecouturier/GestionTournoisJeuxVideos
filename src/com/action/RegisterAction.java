@@ -1,71 +1,91 @@
 package com.action;
 
-import com.admin.Admin;
+import com.user.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterAction extends ActionSupport {
 
-	String lastname, name, email, city, password, birthdate;
+private String confirmPassword;
+private User userBean;
 
+	public User getUserBean() {
+		return userBean;
+	}
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+	public void setUserBean(User user) {
+		userBean = user;
+	}
 	public String execute() throws Exception {
 
-		int var = Admin.register(this);
-		if (var > 0) {
+	int var = User.register(this);
+	if (var > 0) {
 			return "SUCCESS";
-		} else {
-			return "input";
+	} else {
+		addActionMessage("Inscription impossible, vérifiez la validité de l'e-mail.");
+
+		return "input";
 		}
 	}
+/**
+	public void validate(){
+
+		int var = 0;
+		try {
+			var = User.register(this);
+			if (var > 0) {
+
+			} else {
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+		if ( userBean.getName().length() == 0 ){
 
-	public String getLastname() {
-		return lastname;
-	}
+			addFieldError( "userBean.name", "First name is required." );
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
+		}
 
 
-	public String getPassword() {
-		return password;
-	}
+		if ( userBean.getEmail().length() == 0 ){
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+			addFieldError( "userBean.email", "Email is required." );
 
-	public String getBirthdate() {
-		return birthdate;
-	}
+		}
+		if ( userBean.getCity().length() == 0 ){
 
-	public void setBirthdate(String birthdate) {
-		this.birthdate =birthdate;
-	}
-	
+			addFieldError( "userBean.city", "City is required." );
+
+		}
+		if ( userBean.getPassword().length() == 0 ){
+
+			addFieldError( "userBean.password", "Password is required." );
+
+		}
+
+		if ( userBean.getLastname().length() == 0 ){
+
+			addFieldError( "userBean.lastname", "Last name is required." );
+
+		}
+
+		if ( userBean.getLastname().length() == 0 ){
+
+			addFieldError( "userBean.birthdate", "Birth date is required." );
+
+		}
+
+
+	}**/
+
+
 }
