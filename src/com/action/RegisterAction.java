@@ -1,35 +1,43 @@
 package com.action;
 
-import com.user.User;
+import com.javabeans.User;
+import com.models.UserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterAction extends ActionSupport {
 
-private String confirmPassword;
-private User userBean;
+  private String confirmPassword;
+  private User userBean;
+  private UserDAO userDAO = null;
 
 	public User getUserBean() {
 		return userBean;
 	}
-    public String getConfirmPassword() {
+  public void setUserBean(User user) {
+    userBean = user;
+  }
+
+	public String getConfirmPassword() {
         return confirmPassword;
     }
-    public void setConfirmPassword(String confirmPassword) {
+  public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
-	public void setUserBean(User user) {
-		userBean = user;
-	}
+
+
 	public String execute() throws Exception {
 
-	int var = User.register(this);
-	if (var > 0) {
-			return "SUCCESS";
-	} else {
-		addActionMessage("Inscription impossible, vérifiez la validité de l'e-mail.");
+    userDAO = new UserDAO();
 
-		return "input";
-		}
+	  int var = userDAO.register(this);
+
+    if (var > 0) {
+        return "SUCCESS";
+    } else {
+      addActionMessage("Inscription impossible, vérifiez la validité de l'e-mail.");
+
+      return "input";
+      }
 	}
 /**
 	public void validate(){
