@@ -14,6 +14,18 @@ CREATE TABLE `users` (
   `GENDER` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`EMAIL`)
 );
+
+CREATE TABLE IF NOT EXISTS `db`.`Tournoi` (
+  `idTournoi` INT NOT NULL AUTO_INCREMENT,
+  `format` VARCHAR(45) NOT NULL,
+  `dateDeb` DATE NOT NULL,
+  `nomJeu` VARCHAR(45) NOT NULL,
+  `prix` FLOAT NOT NULL,
+  `places` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idTournoi`))
+ENGINE = InnoDB;
+
+
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS `getUser` $$

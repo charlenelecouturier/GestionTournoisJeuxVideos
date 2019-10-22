@@ -5,9 +5,8 @@
 <struts>
     <constant name="struts.ui.theme" value="css_xhtml" />
 
-    <package name="user" extends="struts-default" namespace="/user">
-
-
+    <!--<package name="user" extends="struts-default" namespace="/user">-->
+    <package name="default" extends="struts-default">
 
         <action name="RegisterAction" class="com.action.RegisterAction" method="execute">
             <result name="SUCCESS">/success.jsp</result>
@@ -18,5 +17,22 @@
             <result name="SUCCESS">/success.jsp</result>
             <result name="input">/user/login.jsp</result>
         </action>
+
+        <!-- Action permettant de créer un nouveau tournoi -->
+        <action name="creer_Tournoi"
+                class="com.action.TournoiAction"
+                method="enregistrerTournoi">
+
+          <interceptor-ref name="store">
+            <param name="operationMode">STORE</param>
+          </interceptor-ref>
+          <interceptor-ref name="defaultStack" />
+
+          <result name="input">/administrateur/creerTournoi.jsp</result>
+          <result name="success">/success.jsp</result>
+          <result name="error">/erreur.jsp</result>
+        </action>
+
     </package>
+
 </struts>
