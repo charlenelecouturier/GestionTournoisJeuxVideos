@@ -18,6 +18,21 @@
             <result name="input">/user/login.jsp</result>
         </action>
 
+
+      <!-- Action permettant d'afficher la liste des tournois -->
+        <action name="tournoi_list"
+                class="com.action.TournoiAction"
+                method="execute">
+
+          <interceptor-ref name="store">
+            <param name="operationMode">RETRIEVE</param>
+          </interceptor-ref>
+          <interceptor-ref name="defaultStack" />
+
+          <result name="success">/user/listeTournoi.jsp</result>
+          <result name="error">/erreur.jsp</result>
+        </action>
+
         <!-- Action permettant de créer un nouveau tournoi -->
         <action name="creer_Tournoi"
                 class="com.action.TournoiAction"

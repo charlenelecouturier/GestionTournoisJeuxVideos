@@ -4,6 +4,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import com.javabeans.Tournoi;
 import com.models.TournoiDAO;
+import java.util.Iterator;
+import java.util.List;
 
 public class TournoiAction extends ActionSupport {
 
@@ -11,15 +13,19 @@ public class TournoiAction extends ActionSupport {
 
   private TournoiDAO tournoiDAO = null;
   private Tournoi tournoi;
+  private List<Tournoi> listeTournoi = null;
 
   // ========= Getters/Setters =========
 
   public Tournoi getTournoi() {
     return tournoi;
   }
-
   public void setTournoi(Tournoi tournoi) {
     this.tournoi = tournoi;
+  }
+  public List<Tournoi> getListeTournoi() { return listeTournoi; }
+  public void setListeTournoi(List<Tournoi> listeTournoi) {
+    this.listeTournoi = listeTournoi;
   }
 
   // ========= Méthodes =========
@@ -45,4 +51,21 @@ public class TournoiAction extends ActionSupport {
 
     return vResult;
   }
+
+  public String execute(){
+
+    tournoiDAO = new TournoiDAO();
+    listeTournoi = tournoiDAO.findAll();
+
+    Iterator<Tournoi> it = listeTournoi.iterator();
+    Tournoi myTournoi;
+
+    while(it.hasNext()){
+      myTournoi = (Tournoi) it.next();
+      System.out.println("Tournoi : " + myTournoi.getFormat() + " - " + myTournoi.getNomJeu());
+    }
+
+    return ActionSupport.SUCCESS;
+  }
+
 }

@@ -4,10 +4,12 @@ import com.javabeans.Tournoi;
 
 import java.sql.*;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class TournoiDAO {
 
   private Tournoi tournoi;
+  private ArrayList<Tournoi> listeTournoi = new ArrayList<>();
   private Connection connection;
 
   public TournoiDAO() {
@@ -39,5 +41,33 @@ public class TournoiDAO {
       e.printStackTrace();
     }
     return true;
+  }
+
+  public ArrayList<Tournoi> findAll(){
+
+    Tournoi tournoi = null;
+    try {
+      Statement statement = this.connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(SQLConstant.SELECT_ALL_TOURNOIS);
+
+      while(resultSet.next()){
+        int idTournoi = resultSet.getInt("idTournoi");
+        String format = resultSet.getString("format");
+        String dateDeb = resultSet.getString("dateDeb");
+        String nomJeu = resultSet.getString("nomJeu");
+        float prix = resultSet.getFloat("prix");
+        String places = resultSet.getString("places");
+
+        System.out.println(idTournoi + " - " + format + " - " + dateDeb + " - " + nomJeu + " - " + prix + " - " + places);
+
+        tournoi = new Tournoi(idTournoi, format, dateDeb, nomJeu, prix, places);
+
+        this.listeTournoi.add(tournoi);
+      }
+      resultSet.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return this.listeTournoi;
   }
 }

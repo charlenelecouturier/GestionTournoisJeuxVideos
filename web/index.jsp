@@ -15,6 +15,8 @@
   </nav>
 
   <br>
+  <s:a action="tournoi_list">Liste des tournois</s:a>
+  <br>
   <a href="administrateur/creerTournoi.jsp">Créer un nouveau tournoi</a>
 
   </body>

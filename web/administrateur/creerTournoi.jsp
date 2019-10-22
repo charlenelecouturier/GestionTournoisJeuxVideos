@@ -32,7 +32,7 @@
         <s:submit  class="btn btn-primary" value="Confirmer" />
       </s:form>
     </div>
+    <a href="../index.jsp">Accueil</a>
   </div>
-
   </body>
 </html>
