@@ -27,10 +27,13 @@
           <interceptor-ref name="store">
             <param name="operationMode">RETRIEVE</param>
           </interceptor-ref>
-          <interceptor-ref name="defaultStack" />
-
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse,execute</param>
+            </interceptor-ref>
           <result name="success">/user/listeTournoi.jsp</result>
-          <result name="error">/erreur.jsp</result>
+            <result name="input">/user/listeTournoi.jsp</result>
+
+            <result name="error">/erreur.jsp</result>
         </action>
 
         <!-- Action permettant de créer un nouveau tournoi -->

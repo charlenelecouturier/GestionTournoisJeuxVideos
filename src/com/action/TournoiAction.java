@@ -65,7 +65,7 @@ public class TournoiAction extends ActionSupport {
       System.out.println("Tournoi : " + myTournoi.getFormat() + " - " + myTournoi.getNomJeu());
     }
 
-    return ActionSupport.SUCCESS;
+    return ActionSupport.INPUT;
   }
 
 }

@@ -17,8 +17,17 @@
 
   <body>
 
-  <s:actionmessage />
+  <!-- As a link -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand " href="./index.jsp">Home</a>
+  </nav>
 
+  <br>
+
+
+
+  <s:actionmessage />
+<div class="container">
   <h2>Liste des tournois</h2>
 
   <table class="table">
@@ -45,6 +54,6 @@
   </table>
 
   <a href="administrateur/creerTournoi.jsp">Créer un nouveau tournoi</a><br>
-
+</div>
   </body>
 </html>
