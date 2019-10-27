@@ -1,11 +1,11 @@
 package com.models;
 
 import com.action.RegisterAction;
+import com.javabeans.User;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.Types;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDAO {
 
@@ -62,5 +62,22 @@ public class UserDAO {
       return e.getMessage();
     }
   }
+
+  public boolean delete(String userEmail){
+    PreparedStatement statement = null;
+    try {
+      statement = connection.prepareStatement(SQLConstant.DELETE_USER);
+
+      statement.setString(1, userEmail);
+
+      statement.executeUpdate();
+      statement.close();
+
+    } catch (SQLException e) {
+      Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, e);
+    }
+    return true;
+  }
+
 
 }

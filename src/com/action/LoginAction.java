@@ -7,7 +7,7 @@ public class LoginAction extends ActionSupport {
 
   private String password, email;
   private String msg;
-	private UserDAO userDAO = null;
+  private UserDAO userDAO = null;
 
 	public String execute() throws Exception {
 

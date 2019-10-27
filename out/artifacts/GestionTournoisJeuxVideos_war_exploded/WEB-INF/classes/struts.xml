@@ -18,6 +18,11 @@
             <result name="input">/user/login.jsp</result>
         </action>
 
+        <action name="DeleteAction" class="com.action.DeleteAction" method="execute">
+            <result name="SUCCESS">/success_delete.jsp</result>
+            <result name="input">/user/delete.jsp</result>
+        </action>
+
 
       <!-- Action permettant d'afficher la liste des tournois -->
         <action name="tournoi_list"

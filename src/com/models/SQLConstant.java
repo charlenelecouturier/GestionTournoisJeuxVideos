@@ -6,4 +6,6 @@ public class SQLConstant {
 
   protected static final String INSERT_TOURNOI = "INSERT INTO tournoi(idTournoi, format, dateDeb, nomJeu, prix, places) VALUES (DEFAULT,?,?,?,?,?)";
 
+  protected static final String DELETE_USER = "DELETE FROM users WHERE email = ?";
+
 }
