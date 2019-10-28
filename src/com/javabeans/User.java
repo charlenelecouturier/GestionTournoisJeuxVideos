@@ -1,7 +1,7 @@
 package com.javabeans;
 
 public class User {
-	private String lastname, name, email, city, password, birthdate, phone, gender;
+	private String lastname, name, email, city, password, birthdate, phone, gender, usertype;
 
 	public String getName() {
 		return name;
@@ -58,5 +58,9 @@ public class User {
 	public void setGender(String gender) {
 		this.gender =gender;
 	}
+//ajout du type de user (admin ou user)
+	public String getUsertype() { return usertype; }
+	public void setUsertype(String usertype) {this.usertype =usertype;}
+
 
 }

@@ -14,8 +14,14 @@
         </action>
 
         <action name="LoginAction" class="com.action.LoginAction"  method="execute">
-            <result name="SUCCESS">/success.jsp</result>
+            <result name="SUCCESSUSER">/success.jsp</result>
+            <result name="SUCCESSADMIN">/administrateur/adminHome.jsp</result>
             <result name="input">/user/login.jsp</result>
+        </action>
+
+               <!--Action lors de la déconnexion-->
+        <action name="LogoutAction" class="com.action.LogoutAction">
+            <result name="SUCCESS" type="redirect">/user/login.jsp</result>
         </action>
 
         <action name="DeleteAction" class="com.action.DeleteAction" method="execute">

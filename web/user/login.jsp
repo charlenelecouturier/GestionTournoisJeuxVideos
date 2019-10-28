@@ -18,17 +18,12 @@
 <br>
 
 
-
-
-
-
-
 <div class ="container" style="width:40%">
 	<div class="form-group" >
 		<h1 class="test">Connexion</h1>
 		<br>
 		<s:form
-			action="LoginAction"  namespace="/user" >
+			action="LoginAction"  namespace="/user">
 
 		<s:actionmessage/>
 
@@ -42,6 +37,10 @@
 </div>
 
 	</div>
+
+
+
+
 </body>
 
 </html>

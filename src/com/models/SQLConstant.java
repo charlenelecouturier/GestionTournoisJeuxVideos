@@ -10,5 +10,6 @@ public class SQLConstant {
 
   protected static final String SELECT_NOMJEU = "select * from Tournoi where Tournoi.nomJeu= ?";
 
+  protected static final String SELECT_USERTYPE = "select USERTYPE from users where EMAIL = ?";
 
 }

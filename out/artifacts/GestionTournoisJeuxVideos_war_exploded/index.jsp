@@ -8,6 +8,36 @@
     <title>Home</title>
   </head>
   <body>
+
+
+  <!-- As a link
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="user/register.jsp">Inscription</a>
+    <a class="navbar-brand" href="user/login.jsp">LogIn</a>
+  </nav>-->
+
+  <s:if test="#session.email != null">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand " href="index.jsp">Home</a>
+    <s:a action="LogoutAction">Log Out</s:a>
+  </nav>
+    Hello <s:property value="#session.email"/>
+  </s:if>
+
+  <s:else>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="user/register.jsp">Inscription</a>
+    <a class="navbar-brand" href="user/login.jsp">LogIn</a>
+  </nav>
+  </s:else>
+
+
+<div class="container">
+  <br>
+  <s:a action="tournoi_list">Liste des tournois</s:a>
+  <br>
+  <a href="administrateur/creerTournoi.jsp">Créer un nouveau tournoi</a>
+  </div>
   <!-- As a link -->
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="user/register.jsp">Inscription</a>
