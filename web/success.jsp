@@ -13,24 +13,12 @@
 </head>
 
 <body style="text-align: center; color: green; font-size: 20px;"> <!--margin-top: 200px;">-->
-	<s:if test="#session.email != null">
-	<nav class="navbar navbar-light bg-light">
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Parameters
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="delete.jsp">Delete account</a>
-			</div>
-		</div>
-	</nav>
-	</s:if>
-	Records registered successfully.
-	<s:if test="#session.email != null">
-		Hello <s:property value="email"/>
-	</s:if>
+<nav class="navbar navbar-light bg-light">
+	<a class="navbar-brand " href="../index.jsp">Home</a>
+</nav>
+Register successful
+
 	<br>
 	<br>
-	<a href="../index.jsp">Accueil</a>
 </body>
 </html>

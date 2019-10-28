@@ -11,7 +11,9 @@
     <title>Home</title>
   </head>
   <body>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <!-- As a link
   <nav class="navbar navbar-light bg-light">
@@ -20,36 +22,29 @@
   </nav>-->
 
   <s:if test="#session.email != null">
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand " href="index.jsp">Home</a>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Parameters
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="user/delete.jsp">Delete account</a>
-      </div>
-    </div>
-    <s:a class="navbar-brand" action="LogoutAction">Log Out</s:a>
-  </nav>
-    Hello <s:property value="#session.email"/>
+
+  <s:if test="#session.usertype.equals(\"user\")">
+
+    <jsp:include page="/WEB-INF/user/userHome.jsp"></jsp:include>
+
+  </s:if>
+  <s:elseif test="#session.usertype.equals(\"admin\")">
+  <%@include file="./WEB-INF/administrateur/adminHome.jsp" %>
+  </s:elseif>
   </s:if>
 
   <s:else>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="user/register.jsp">Inscription</a>
     <a class="navbar-brand" href="user/login.jsp">LogIn</a>
+
   </nav>
-  </s:else>
-
-
-<div class="container">
-  <br>
-  <s:a action="tournoi_list">Liste des tournois</s:a>
-  <br>
-  <a href="administrateur/creerTournoi.jsp">Créer un nouveau tournoi</a>
-  </div>
-  <!-- As a link -->
+    <div class="container">
+      <br>
+      <s:a action="tournoi_list">Liste des tournois</s:a>
+      <br>
+    </div>
+    <!-- As a link -->
 
     <div class ="container">
       <div class="form-group" >
@@ -63,8 +58,10 @@
           </table>
         </s:form>
 
-        </div>
       </div>
+    </div>
+  </s:else>
+
 
   </body>
 </html>

@@ -32,12 +32,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		} else {
 			this.session = ActionContext.getContext().getSession(); //récupération de la session courante
 			this.session.put("email", email);//ajout de l'email de l'utilisateur en variable de session
+			this.session.put("usertype",userDAO.getUserType(email) );
 			this.session.put("password", password);//ajout du mot de passe de l'utilisateur en variable de session
+		return "SUCCESS";
 		}
-			if (userDAO.getUserType(email).equals("user")) {
-				return "SUCCESSUSER";
-			} 	else
-				return "SUCCESSADMIN";
+
 	}
 
 

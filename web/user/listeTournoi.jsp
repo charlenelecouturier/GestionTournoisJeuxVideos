@@ -53,8 +53,16 @@
     </tbody>
   </table>
 
+<s:if test="#session.email != null && #session.usertype.equals('admin')">
+  <s:form
+          action="NewTournoiAction"  namespace="/user" >
 
-  <a href="administrateur/creerTournoi.jsp">Créer un nouveau tournoi</a><br>
+
+
+    <s:submit  class="btn btn-primary" value="Creer un nouveau tournoi" />
+</s:form>
+
+</s:if>
 </div>
   </body>
 </html>
