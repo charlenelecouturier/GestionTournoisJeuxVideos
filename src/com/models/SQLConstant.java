@@ -8,4 +8,7 @@ public class SQLConstant {
 
   protected static final String DELETE_USER = "DELETE FROM users WHERE email = ?";
 
+  protected static final String SELECT_NOMJEU = "select * from Tournoi where Tournoi.nomJeu= ?";
+
+
 }
