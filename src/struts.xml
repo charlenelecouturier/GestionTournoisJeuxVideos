@@ -56,6 +56,12 @@
           <result name="success">/success.jsp</result>
           <result name="error">/erreur.jsp</result>
         </action>
+        
+        <action name="RechercheAction" class="com.action.RechercheAction" method="execute">
+            <result name="input">index.jsp</result>
+            <result name="success">/user/listeTournoi.jsp</result>
+            <result name="error">/erreur.jsp</result>
+        </action>
 
     </package>
 
