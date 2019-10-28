@@ -9,7 +9,7 @@
 
 <body style="text-align: center; color: green; font-size: 20px;">
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand " href="index.jsp">Home</a>
+        <a class="navbar-brand " href="../index.jsp">Home</a>
     </nav>
     Delete your account was sucessfully done.
 </body>
