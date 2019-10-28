@@ -32,7 +32,6 @@
 
             <s:actionmessage/>
 
-            <s:textfield  label="Email" name="email" class="form-control formstruts" />
             <s:password  label="Password" name="password" class="form-control formstruts" />
 
             <s:submit  class="btn btn-primary" value="Confirm delete" />

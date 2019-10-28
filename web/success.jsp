@@ -13,6 +13,7 @@
 </head>
 
 <body style="text-align: center; color: green; font-size: 20px;"> <!--margin-top: 200px;">-->
+	<s:if test="#session.email != null">
 	<nav class="navbar navbar-light bg-light">
 		<div class="dropdown">
 			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,8 +24,11 @@
 			</div>
 		</div>
 	</nav>
+	</s:if>
 	Records registered successfully.
-	Hello <s:property value="email"/>
+	<s:if test="#session.email != null">
+		Hello <s:property value="email"/>
+	</s:if>
 	<br>
 	<br>
 	<a href="../index.jsp">Accueil</a>

@@ -4,29 +4,39 @@ import com.javabeans.User;
 import com.models.ConnectionBDMysql;
 import com.models.UserDAO;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class DeleteAction extends ActionSupport {
+import java.util.Map;
+
+public class DeleteAction extends ActionSupport implements SessionAware{
     private String password, email;
     private String msg;
     UserDAO userDAO = new UserDAO();
+    Map<String,Object> session; //HashMap pour la session
+
+
+    @Override
+    public void setSession(Map<String,Object> pSession){
+        this.session = pSession;
+    }
 
     public String execute() throws Exception {
-        msg = userDAO.getUser(email, password);
+        //msg = userDAO.getUser(email, password);
 
-        if (msg.startsWith("Sorry")) {
-            addActionMessage("Wrong password.");
+        if (session.containsKey("email"))
+            email = (String)session.get("email");
 
-            return "input";
-        }
-        else {
-            try {
-                userDAO.delete(email);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
+        if(password.equals(session.get("password"))) {
+            userDAO.delete(email);
+            session.remove("email",email);
+            session.remove("password",password);
             return "SUCCESS";
         }
+        else {
+            addActionMessage("Wrong password.");
+            return "input";
+        }
+
     }
 
     public String getEmail() {
