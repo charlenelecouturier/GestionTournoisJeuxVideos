@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 
 <body style="text-align: center; color: green; font-size: 20px; margin-top: 200px;">
 	Records registered successfully.
+	Hello <s:property value="email"/>
 	<br>
 	<br>
 	<a href="../index.jsp">Accueil</a>

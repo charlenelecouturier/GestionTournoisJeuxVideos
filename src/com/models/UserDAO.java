@@ -2,10 +2,9 @@ package com.models;
 
 import com.action.RegisterAction;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.Types;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDAO {
 
@@ -21,7 +20,7 @@ public class UserDAO {
 
     try {
 
-      PreparedStatement ps = connection.prepareStatement("INSERT INTO USERS VALUES(?,?,?,?,?,?,?,?)");
+      PreparedStatement ps = connection.prepareStatement("INSERT INTO USERS VALUES(?,?,?,?,?,?,?,?,?)");
       ps.setString(1, ra.getUserBean().getName());
       ps.setString(2, ra.getUserBean().getLastname());
       ps.setString(3, ra.getUserBean().getEmail());
@@ -33,6 +32,7 @@ public class UserDAO {
       ps.setString(6, ra.getUserBean().getCity());
       ps.setString(7, ra.getUserBean().getPhone());
       ps.setString(8, ra.getUserBean().getGender());
+      ps.setString(9, ra.getUserBean().getUsertype()); //ajout du type de user (admin ou user)
 
       flag = ps.executeUpdate();
       //connection.close();
@@ -62,5 +62,27 @@ public class UserDAO {
       return e.getMessage();
     }
   }
+
+  //pour avoir le type du user dans la table users (admin ou user)
+  public String getUserType(String userEmail) {
+    String uValueType = null;
+    try {
+      PreparedStatement statement= connection.prepareStatement(SQLConstant.SELECT_USERTYPE);
+
+      statement.setString(1, userEmail);
+      ResultSet resultSet = statement.executeQuery();
+      while(resultSet.next()) {
+
+        uValueType = resultSet.getString("USERTYPE");
+      }
+      statement.close();
+      resultSet.close();
+
+    } catch (SQLException e) {
+      Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, e);
+    }
+    return uValueType;
+  }
+
 
 }
