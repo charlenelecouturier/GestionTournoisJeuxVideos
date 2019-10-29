@@ -34,7 +34,7 @@ public class UserDAO {
       ps.setString(6, ra.getUserBean().getCity());
       ps.setString(7, ra.getUserBean().getPhone());
       ps.setString(8, ra.getUserBean().getGender());
-      ps.setString(9, ra.getUserBean().getUsertype()); //ajout du type de user (admin ou user)
+      ps.setString(9, "user"); //ajout du type de user (admin ou user)
 
       flag = ps.executeUpdate();
       //connection.close();
