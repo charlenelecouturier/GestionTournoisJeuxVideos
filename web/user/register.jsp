@@ -28,7 +28,7 @@
 		<h1 class="test">Inscription</h1>
 		<br>
 		<s:form
-			action="RegisterAction"  namespace="/user" >
+			action="RegisterAction" >
 
 		<s:actionmessage/>
 			<s:textfield

@@ -21,8 +21,7 @@ public class UpdatePasswordAction extends ActionSupport {
 
         if(password.equals(session.get("password"))) {
             userDAO.updatePassword(email, newPassword);
-            session.remove("email");
-            session.put("email", email);
+            session.remove("password");
             session.put("password", newPassword);
             return "SUCCESS";
         }

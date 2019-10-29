@@ -22,7 +22,7 @@
 </nav>
 <div class="container">
 
-Hello <s:property value="#session.email"/>
+    <p align="center" >Hello <s:property value="#session.email"/></p>
 </div>
 <div class="container">
     <br>

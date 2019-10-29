@@ -52,9 +52,14 @@
         <s:form action="RechercheAction" >
           <s:actionmessage/>
           <table>
-            <td><a >Recherche</a></td>
-            <td classe="brecherche"><s:textfield name="search" type="search" class="form-control formstruts" /></td>
-            <td><s:submit  class="btn btn-primary" value="Recherche" /></td>
+            <tr>
+              <td><a >Recherche</a></td>
+              <td classe="brecherche"><s:textfield name="search" type="search" class="form-control formstruts" /></td>
+              <td><s:submit  class="btn btn-primary" value="Recherche" /></td>
+            </tr>
+            <tr>
+              <td><a href="rechercheAvance.jsp">Recherche avancées</a></td>
+            </tr>
           </table>
         </s:form>
 

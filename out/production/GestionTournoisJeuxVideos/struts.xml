@@ -79,6 +79,16 @@
             <result name="success">/WEB-INF/user/delete.jsp</result>
             <result name="error">/erreur.jsp</result>
         </action>
+
+        <action name="NewUpdateAction" class="com.action.NewUpdateFormAction" method="execute">
+            <result name="success">/user/updatePassword.jsp</result>
+            <result name="error">/erreur.jsp</result>
+        </action>
+
+        <action name="RechercheAvanceAction" class="com.action.RechercheAction" method="rechercheAvance">
+            <result name="success">/user/listeTournoi.jsp</result>
+            <result name="error">/erreur.jsp</result>
+        </action>
     </package>
 
 </struts>

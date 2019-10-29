@@ -24,7 +24,7 @@
 
   <!-- As a link -->
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand " href="../index.jsp">Home</a>
+    <a class="navbar-brand " href="././index.jsp">Home</a>
   </nav>
 
   <div class="container" style="width:40%">

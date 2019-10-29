@@ -19,7 +19,7 @@
 
   <!-- As a link -->
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand " href="./index.jsp">Home</a>
+    <a class="navbar-brand" href="./index.jsp">Home</a>
   </nav>
 
   <br>
@@ -55,7 +55,7 @@
 
 <s:if test="#session.email != null && #session.usertype.equals('admin')">
   <s:form
-          action="NewTournoiAction"  namespace="/user" >
+          action="NewTournoiAction" >
 
 
 

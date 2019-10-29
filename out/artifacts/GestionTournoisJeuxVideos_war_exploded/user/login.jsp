@@ -23,7 +23,7 @@
 		<h1 class="test">Connexion</h1>
 		<br>
 		<s:form
-			action="LoginAction"  namespace="/user">
+			action="LoginAction">
 
 		<s:actionmessage/>
 

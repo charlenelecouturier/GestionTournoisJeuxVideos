@@ -9,9 +9,12 @@
     <s:head />
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand " href="../index.jsp">Home</a>
+</nav>
 <div class ="container" style="width:40%">
     <div class="form-group" >
-        <h1 class="test">Delete</h1>
+        <h1 class="test">Change password</h1>
         <br>
         <s:form
                 action="UpdatePasswordAction"  namespace="/user" >

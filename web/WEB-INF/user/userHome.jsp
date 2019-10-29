@@ -19,18 +19,19 @@
 <body>
 <s:if test="#session.email != null">
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand " href="../../index.jsp">Home</a>
+        <a class="navbar-brand " href="../index.jsp">Home</a>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Parameters
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="NewUpdateAction">Change password</a>
                 <a class="dropdown-item" href="NewDeleteAction">Delete account</a>
             </div>
         </div>
         <s:a class="navbar-brand" action="LogoutAction">Log Out</s:a>
     </nav>
-    Hello <s:property value="#session.email"/>
+    <p align="center" >Hello <s:property value="#session.email"/></p>
 </s:if>
 
 <s:else>
@@ -55,9 +56,14 @@
         <s:form action="RechercheAction" >
             <s:actionmessage/>
         <table>
-            <td><a >Recherche</a></td>
-            <td classe="brecherche"><s:textfield name="search" type="search" class="form-control formstruts" /></td>
-            <td><s:submit  class="btn btn-primary" value="Recherche" /></td>
+            <tr>
+                <td><a >Recherche</a></td>
+                <td classe="brecherche"><s:textfield name="search" type="search" class="form-control formstruts" /></td>
+                <td><s:submit  class="btn btn-primary" value="Recherche" /></td>
+            </tr>
+            <tr>
+                <td><a href="../../rechercheAvance.jsp">Recherche avancées</a></td>
+            </tr>
         </table>
         </s:form>
 
