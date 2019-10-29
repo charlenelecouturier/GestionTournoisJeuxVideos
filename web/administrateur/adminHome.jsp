@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand " href="../index.jsp">Home</a>
-    <s:a action="LogoutAction">Log Out</s:a>
+    <s:a class="navbar-brand " action="LogoutAction">Log Out</s:a>
 </nav>
 
 Hello <s:property value="#session.email"/>

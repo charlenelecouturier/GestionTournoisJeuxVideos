@@ -3,6 +3,7 @@ package com.models;
 import com.action.RegisterAction;
 import com.javabeans.User;
 
+import java.awt.event.PaintEvent;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,6 +81,23 @@ public class UserDAO {
     return true;
   }
 
+  public boolean updatePassword(String userEmail, String userPassword){
+    PreparedStatement statement = null;
+    try{
+      statement = connection.prepareStatement(SQLConstant.UPDATE_PASSWORD);
+
+      statement.setString(1, userPassword);
+      statement.setString(2, userEmail);
+
+      statement.executeUpdate();
+      statement.close();
+    }
+    catch (SQLException e) {
+      Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, e);
+    }
+    return true;
+
+  }
 
   //pour avoir le type du user dans la table users (admin ou user)
   public String getUserType(String userEmail) {

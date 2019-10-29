@@ -5,40 +5,27 @@
     <link rel="stylesheet" href="../style/style.css">
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Suppression</title>
+    <title>Update</title>
     <s:head />
 </head>
-<body >
-
-<!-- As a link -->
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand " href="../index.jsp">Home</a>
-</nav>
-
-<br>
-
-
-
-
-
-
-
+<body>
 <div class ="container" style="width:40%">
     <div class="form-group" >
         <h1 class="test">Delete</h1>
         <br>
         <s:form
-                action="DeleteAction"  namespace="/user" >
+                action="UpdatePasswordAction"  namespace="/user" >
 
             <s:actionmessage/>
 
             <s:password  label="Password" name="password" class="form-control formstruts" />
+            <s:password label="New password" name="newPassword" class="form-control formstruts"/>
 
-            <s:submit  class="btn btn-primary" value="Confirm delete" />
+            <s:submit  class="btn btn-primary" value="Confirm change" />
         </s:form>
     </div>
 
 </div>
-</body>
 
+</body>
 </html>

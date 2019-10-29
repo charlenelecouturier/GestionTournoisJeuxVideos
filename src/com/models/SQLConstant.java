@@ -12,4 +12,6 @@ public class SQLConstant {
 
   protected static final String SELECT_USERTYPE = "select USERTYPE from users where EMAIL = ?";
 
+  protected static final String UPDATE_PASSWORD = "UPDATE users SET password = ? WHERE email = ?";
+
 }

@@ -29,6 +29,11 @@
             <result name="input">/user/delete.jsp</result>
         </action>
 
+        <action name="UpdatePasswordAction" class="com.action.UpdatePasswordAction" method="execute">
+            <result name="SUCCESS">/succes_update_password.jsp</result>
+            <result name="input">/user/updatePassword.jsp</result>
+        </action>
+
 
       <!-- Action permettant d'afficher la liste des tournois -->
         <action name="tournoi_list"

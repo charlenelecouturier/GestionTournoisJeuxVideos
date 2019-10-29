@@ -21,6 +21,7 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<a class="dropdown-item" href="delete.jsp">Delete account</a>
+				<a class="dropdown-item" href="updatePassword.jsp">Change password</a>
 			</div>
 		</div>
 	</nav>
